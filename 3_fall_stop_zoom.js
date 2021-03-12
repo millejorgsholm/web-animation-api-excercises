@@ -19,10 +19,8 @@ const falling = {
 };
 
 const move = {
-  duration: 1000,
+  duration: 2000,
   iterations: Infinity,
-  direction: "alternate",
-  easing: "ease",
 };
 
 const zoom_kf = [{ transform: "scale(1)" }, { transform: "scale(0)" }];
