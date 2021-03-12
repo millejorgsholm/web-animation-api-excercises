@@ -23,7 +23,7 @@ const zoom_kf = [{ transform: "scale(0)" }, { transform: "scale(1)" }];
 const falling_kf = [
   { transform: "translateY(-20vw)" },
 
-  { transform: "translateY(10vw)" },
+  { transform: "translateY(42vw)" },
 ];
 
 //Animating the ball using the  keyframes and properties
