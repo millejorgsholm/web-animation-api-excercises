@@ -7,9 +7,8 @@
 const zoom = {
   duration: 500,
   iterations: 1,
-  direction: "alternate",
-  easing: "ease",
   fill: "forwards",
+  composite: "add",
 };
 
 const falling = {
