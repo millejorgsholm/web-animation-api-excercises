@@ -18,12 +18,27 @@ const falling = {
   easing: "ease",
 };
 
-const zoom_kf = [{ transform: "scale(0)" }, { transform: "scale(1)" }];
+const move = {
+  duration: 1000,
+  iterations: Infinity,
+  direction: "alternate",
+  easing: "ease",
+};
+
+const zoom_kf = [{ transform: "scale(1)" }, { transform: "scale(0)" }];
 
 const falling_kf = [
   { transform: "translateY(-20vw)" },
 
   { transform: "translateY(42vw)" },
+];
+
+const move_kf = [
+  { transform: "translate(42vw,0)" },
+  { transform: "translate(85vw,20vw)" },
+  { transform: "translate(42vw,41vw)" },
+  { transform: "translate(0,20vw)" },
+  { transform: "translate(42vw,0)" },
 ];
 
 //Animating the ball using the  keyframes and properties
@@ -40,13 +55,13 @@ function ballClicked() {
   // pause falling animation
   fall_anim.pause();
 
-  // start zoom-animation
-  ballZoom();
-}
-
-function ballZoom() {
+  //start zoom-animation
   const zoom_anim = ball.animate(zoom_kf, zoom);
 
+  //start move-animation
+  const move_anim = ball.animate(move_kf, move);
+
+  //repeat it
   zoom_anim.onfinish = () => {
     zoom_anim.cancel();
     fall_anim.currentTime = 0;
