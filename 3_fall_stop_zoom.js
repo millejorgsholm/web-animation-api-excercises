@@ -33,17 +33,23 @@ const ball = document.querySelector("#ball");
 document.querySelector("#ball").addEventListener("click", ballClicked);
 
 // start falling animation
-const animation = ball.animate(falling_kf, falling);
+const fall_anim = ball.animate(falling_kf, falling);
 
 function ballClicked() {
   console.log("Ball clicked!");
   // pause falling animation
-  animation.pause();
+  fall_anim.pause();
 
   // start zoom-animation
   ballZoom();
 }
 
 function ballZoom() {
-  const animation = ball.animate(zoom_kf, zoom);
+  const zoom_anim = ball.animate(zoom_kf, zoom);
+
+  zoom_anim.onfinish = () => {
+    zoom_anim.cancel();
+    fall_anim.currentTime = 0;
+    fall_anim.play();
+  };
 }
